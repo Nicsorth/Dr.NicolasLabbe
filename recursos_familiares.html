@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recursos para Familiares y Cuidadores — PersonalidadSana · Nicolás Labbé</title>
+    <meta name="description" content="Recursos psicoeducativos para familias y cuidadores: videos, programas y materiales claros, basados en evidencia." />
+    <link rel="icon" href="data:," />
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Ajustes específicos para esta página (opcional mover a styles.css) -->
+    <style>
+      /* HERO de esta página (puedes cambiar la imagen cuando quieras) */
+      .hero--recursos .hero-bg img{ object-position:center; }
+
+      /* Grid de videos uniforme y centrado */
+      .video-grid{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+        align-items: start;
+      }
+      .video-card{
+        position: relative;
+        cursor: pointer;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #000;
+      }
+      .video-card img{
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+      }
+      .video-card .overlay{
+        position:absolute; inset:0;
+        display:flex; align-items:center; justify-content:center;
+        background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.45));
+        transition: background .2s ease;
+      }
+      .video-card:hover .overlay{ background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.6)); }
+      .video-card .play-icon{
+        font-size: 1.35rem;   /* 👈 más pequeño y consistente */
+        line-height: 1;
+        color: #fff;
+        padding: .55rem .7rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,.15);
+        backdrop-filter: blur(2px);
+        border: 1px solid rgba(255,255,255,.25);
+        pointer-events: none;
+      }
+      .video-card p{
+        margin:.6rem 0 0;
+        font-size:.95rem;
+        color: var(--ink);
+        text-align:center;
+      }
+
+      /* Modal de video */
+      .modal{
+        display:none; position:fixed; inset:0; z-index:9999;
+        background: rgba(0,0,0,.8);
+        align-items:center; justify-content:center;
+        padding: 1rem;
+      }
+      .modal.show{ display:flex; }
+      .modal-content{
+        position:relative; width: min(900px, 92vw); background:#000; border-radius:12px; overflow:hidden;
+      }
+      .modal-content iframe{ width:100%; aspect-ratio:16/9; border:0; display:block; }
+      .close-btn{
+        position:absolute; top:-14px; right:-14px;
+        width:34px; height:34px; border-radius:999px; border:0;
+        background:#fff; color:#333; cursor:pointer; font-size:1.2rem;
+        box-shadow: 0 6px 18px rgba(0,0,0,.35);
+      }
+      .spinner{
+        position:absolute; inset:0; display:grid; place-items:center; pointer-events:none;
+      }
+      .spinner::after{
+        content:""; width:42px; height:42px; border-radius:999px;
+        border:4px solid rgba(255,255,255,.35); border-top-color:#fff;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin{ to { transform: rotate(360deg); } }
+    </style>
+  </head>
+
+  <body>
+    <a href="#contenido" class="chip wrap sr-only">Saltar al contenido</a>
+
+    <!-- Header (igual al resto del sitio) -->
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="index.html#contenido" aria-label="Ir al inicio — Ps. Nicolás Labbé A., PhD">
+          <div class="logo" aria-hidden="true">Ps.</div>
+          <span>Nicolás Labbé A., PhD</span>
+        </a>
+
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/psnicolaslabbe/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/ps_nicolaslabbea_phd/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ps_nicolaslabbea_phd" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <nav aria-label="Navegación principal">
+          <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+            <span class="burger" aria-hidden="true"></span>
+            <span class="sr-only">Menú</span>
+          </button>
+          <ul id="menu">
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#recursos">Recursos</a></li>
+            <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="nav-backdrop" class="nav-backdrop" hidden></div>
+
+    <main id="contenido">
+      <!-- HERO -->
+      <section class="hero hero--integrado hero--recursos">
+        <picture class="hero-bg">
+          <source media="(min-width: 769px)" srcset="img/recursos-familiares.jpg" />
+          <img src="img/recursos-familiares.jpg" alt="Recursos para familiares y cuidadores" width="1600" height="900" loading="eager" decoding="async" />
+        </picture>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">RECURSOS PARA FAMILIARES</h1>
+          <h2 class="hero-subtitle">
+            Material psicoeducativo, con respaldo empírico, y aplicable para quienes conviven con alguien que  experimente un <strong>Trastorno de la Personalidad</strong>.
+          </h2>
+        </div>
+      </section>
+
+      <!-- Intro -->
+      <section class="therapy-section therapy-section--dark" id="recursos-hero">
+        <div class="wrap">
+          <div class="therapy-title"><h2>Recursos para familiares y cuidadores</h2></div>
+          <div class="therapy-content">
+            <p>
+              Convivir con una persona que atraviesa <strong>dificultades emocionales o de personalidad</strong>
+              puede ser un gran desafío. Aquí reúno <strong>recursos psicoeducativos</strong> con respaldo
+              científico, explicados en un lenguaje claro, para apoyar a las familias en lo cotidiano.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Family Connections -->
+      <section class="therapy-section therapy-section--light" id="family-connections">
+        <div class="wrap">
+          <div class="therapy-title"><h2>Family Connections</h2></div>
+          <div class="therapy-content">
+            <p>
+              <strong>Family Connections (FC)</strong> es un programa manualizado de educación, entrenamiento en habilidades
+              y apoyo entre pares, creado para familiares de personas que experimentan un <strong>Trastorno de la Personalidad</strong>. Cuenta con 8 Ensayos Clínicos Aleatorizados, siendo consistente en la reducción de estrés percibido y en la mejora de habilidades de comunicación. <br />
+              El programa cuenta con una versión abreviada y accesible a todo el mundo; <b>"Abre tu mente antes de abrir tu boca"</b>, y consiste en una serie de 6 videos a los que puedes acceder aqui abajo. Ideal que puedas verlo acompañado/a de otras personas que también están conviviendo con ese ser querido que experimenta un <strong>Trastorno de la Personalidad</strong> para que puedan ver cada capitulo, reflexionar y sacar conclusiones. 
+            </p>
+
+            <div class="video-grid">
+              <!-- Reemplaza con los módulos que prefieras mantener -->
+              <div class="video-card" data-video="https://www.youtube.com/embed/GdNFFn2MxhE?rel=0&autoplay=1">
+                <img src="https://img.youtube.com/vi/GdNFFn2MxhE/hqdefault.jpg" alt="Módulo 1 - Introducción" loading="lazy">
+                <div class="overlay"><span class="play-icon">Modulo 1: Introducción</span></div>
+                <p>Módulo 1: Introducción</p>
+              </div>
+
+              <div class="video-card" data-video="https://www.youtube.com/embed/DwO9Dufpk4k?rel=0&autoplay=1">
+                <img src="https://img.youtube.com/vi/DwO9Dufpk4k/hqdefault.jpg" alt="Módulo 2 - Psicoeducación" loading="lazy">
+                <div class="overlay"><span class="play-icon">Módulo 2 - Psicoeducación</span></div>
+                <p>Módulo 2: Psicoeducación</p>
+              </div>
+
+              <div class="video-card" data-video="https://www.youtube.com/embed/SONe0Ew0smE?rel=0&autoplay=1">
+                <img src="https://img.youtube.com/vi/SONe0Ew0smE/hqdefault.jpg" alt="Módulo 3 - Habilidades & Mindfulness" loading="lazy">
+                <div class="overlay"><span class="play-icon">Módulo 3 - Habilidades & Mindfulness</span></div>
+                <p>Módulo 3: Habilidades & Mindfulness</p>
+              </div>
+
+              <div class="video-card" data-video="https://www.youtube.com/embed/qi-e5Kc-bic?rel=0&autoplay=1">
+                <img src="https://img.youtube.com/vi/qi-e5Kc-bic/hqdefault.jpg" alt="Módulo 4 - Habilidades en el entorno" loading="lazy">
+                <div class="overlay"><span class="play-icon">Módulo 4 - Habilidades en el entorno</span></div>
+                <p>Módulo 4: Habilidades en el entorno</p>
+              </div>
+
+              <div class="video-card" data-video="https://www.youtube.com/embed/gkfbJ2VBlVQ?rel=0&autoplay=1">
+                <img src="https://img.youtube.com/vi/gkfbJ2VBlVQ/hqdefault.jpg" alt="Módulo 5 - Validación" loading="lazy">
+                <div class="overlay"><span class="play-icon">Módulo 5 - Validación</span></div>
+                <p>Módulo 5: Validación</p>
+              </div>
+
+              <div class="video-card" data-video="https://www.youtube.com/embed/jWpKkw4NPgU?rel=0&autoplay=1">
+              <img src="https://img.youtube.com/vi/jWpKkw4NPgU/hqdefault.jpg" alt="Módulo 6 - Manejo de crisis" loading="lazy">
+              <div class="overlay"><span class="play-icon">Módulo 6 - Manejo de crisis</span></div>
+              <p>Módulo 6: Manejo de Crisis</p>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Air Strategy -->
+      <section class="therapy-section therapy-section--light" id="project-air">
+        <div class="wrap">
+          <div class="therapy-title"><h2>Project Air Strategy</h2></div>
+          <div class="therapy-content">
+            <p>
+              <strong>Project Air Strategy</strong> es un referente internacional en investigación, educación y tratamiento
+              de los <strong>Trastornos de la Personalidad</strong>. Ofrece materiales útiles para familias, cuidadores, profesionales, e incluso pacientes. Aquí abajo te quiero compartir un video con el que suelo trabajar con padres y cuidadores. 
+            </p>
+            <p>
+        Puedes encontrar más información en su sitio oficial: <strong><a href="https://www.uow.edu.au/project-air/" target="_blank" rel="noopener noreferrer">Project Air Strategy</a></strong>.
+      </p>
+      <div class="video-grid">
+        <!-- Video card para Project Air -->
+        <div class="video-card" data-video="https://www.youtube.com/embed/r_B61YifyrM?rel=0&autoplay=1">
+          <img src="https://img.youtube.com/vi/r_B61YifyrM/hqdefault.jpg" alt="Estilos parentales y manejo de situaciones difíciles">
+          <div class="overlay"><span class="play-icon">▶</span></div>
+          <p>Estilos parentales y manejo de situaciones difíciles</p>
+        </div>
+      </div>
+      <!-- Instrucciones para subtítulos y ejercicio -->
+      <div class="instructions">
+        
+        <h3>Actividad: patrones relacionales</h3>
+        <p>
+          En este video se presentan distintos patrones de interacción y formas de aproximarse a la resolución de
+          problemas en situaciones difíciles. Cuando trabajo con padres y/o cuidadores, les propongo el siguiente ejercicio (ojalá en pareja):
+        </p>
+        <ol>
+          <li>Cada uno identificará cuál de los estilos de comunicación o resolución de problemas predomina en el otro.</li>
+          <li>No se permite elegir el patrón “suficientemente bueno” en esta dinámica.</li>
+          <li>Toma la actividad como una instancia de trabajo y reflexión conjunta, evitando tomárselo de manera personal.</li>
+        </ol>
+        <p>
+          <strong>Objetivo:</strong> ayudarles a reflexionar sobre el grado de alineación entre sus estilos parentales y
+          reconocer qué elementos faltan para aproximarse a un estilo de interacción “suficientemente bueno”.
+        </p>
+        <h3>Cómo activar subtítulos automáticos en español</h3>
+        <p>
+          Para que puedas seguir mejor el contenido del video, te recomendamos activar los subtítulos
+          automáticos y traducirlos al español. Sigue estos pasos:
+        </p>
+        <ol>
+          <li><strong>Abrir el video en YouTube:</strong> Utiliza el enlace que compartimos más arriba.</li>
+          <li><strong>Buscar el ícono de subtítulos:</strong> En la barra inferior del reproductor, haz clic en el
+            ícono <em>CC</em> o <em>Subtítulos</em> para activar los subtítulos automáticos.</li>
+          <li><strong>Activar los subtítulos automáticos:</strong> Esto suele habilitar subtítulos en el idioma original
+            (generalmente inglés).</li>
+          <li><strong>Cambiar el idioma a español:</strong> Pulsa el ícono de configuración (una rueda ⚙️) y selecciona
+            <em>Subtítulos/CC</em>. Luego elige <em>Traducir automáticamente</em> y selecciona <em>Español</em> en la lista de
+            idiomas disponibles.</li>
+          <li><strong>Ver los subtítulos en español:</strong> Al seleccionar el idioma, los subtítulos traducidos
+            aparecerán sobre el video. Si tardan en mostrarse, pausa y reinicia la reproducción.</li>
+        </ol>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- Podcast: Hablemos de AdolesCiencia -->
+ <section class="therapy-section therapy-section--dark" id="podcast">
+  <div class="wrap">
+    <div class="therapy-title"><h2>Podcast: Hablemos de AdolesCiencia</h2></div>
+    <div class="therapy-content">
+      <p>
+        <strong>Hablemos de AdolesCiencia</strong> es un espacio para padres, docentes y profesionales que quieren 
+        comprender mejor los desafíos de la adolescencia. Cada episodio combina evidencia científica y experiencia clínica, 
+        en un lenguaje cercano y práctico.
+      </p>
+
+      <!-- Reproductor Spotify -->
+      <div class="embed-podcast">
+        <iframe style="border-radius:12px" 
+          src="https://open.spotify.com/embed/show/2QZwU1if3IC2bXognQ68TU?utm_source=generator"
+          width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+        </iframe>
+      <!-- Botones -->
+      <p style="margin-top:1rem;">
+        <a class="btn" href="https://open.spotify.com/show/2QZwU1if3IC2bXognQ68TU" target="_blank">Escuchar en Spotify</a>
+        <br/>
+        <a class="btn" href="https://www.youtube.com/@ps_nicolaslabbea_phd/featured" target="_blank">Ver canal en YouTube</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+      <!-- CTA: Agenda -->
+      <section class="cta-agenda">
+        <div class="wrap" style="text-align:center; padding: 3rem 1rem;">
+          <h2 style="margin-bottom: 1rem; color: var(--primary);"><b>¿Quieres conversar sobre tu caso?</b></h2>
+          <p class="muted" style="margin-bottom: 1.5rem;">Agenda una primera entrevista o solicita orientación.</p>
+          <a class="btn btn-primary btn-pulse" href="https://encuadrado.com/p/nicolas-labbe-a-1" target="_blank" rel="noopener">
+            AGENDAR UNA HORA
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="contact-email"><a href="mailto:consulta.nicolaslabbe@gmail.com">consulta.nicolaslabbe@gmail.com</a></p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/psnicolaslabbe/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/ps_nicolaslabbea_phd/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ps_nicolaslabbea_phd" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="copyright">© <span id="year"></span> PersonalidadSana SpA · Todos los derechos reservados</p>
+      </div>
+    </footer>
+
+    <!-- Modal global para reproducir videos -->
+    <div class="modal" id="videoModal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-label="Video">
+        <div class="spinner" id="spinner"></div>
+        <button class="close-btn" id="closeBtn" aria-label="Cerrar">×</button>
+        <iframe id="videoIframe" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- JS base + manejo de modal -->
+    <script>
+      // Año
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Menú móvil
+      const btn = document.querySelector('.menu-btn');
+      const menu = document.getElementById('menu');
+      const backdrop = document.getElementById('nav-backdrop');
+      if (btn && menu && backdrop) {
+        btn.addEventListener('click', () => {
+          const isOpen = menu.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(isOpen));
+          if (isOpen){ backdrop.hidden = false; requestAnimationFrame(() => backdrop.classList.add('show')); }
+          else { backdrop.classList.remove('show'); backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true }); }
+        });
+        backdrop && backdrop.addEventListener('click', () => {
+          menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
+          backdrop.classList.remove('show'); backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && menu.classList.contains('open')) {
+            menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
+            backdrop.classList.remove('show'); backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
+          }
+        });
+      }
+
+      // Modal de videos
+      const videoModal = document.getElementById('videoModal');
+      const videoIframe = document.getElementById('videoIframe');
+      const spinner = document.getElementById('spinner');
+      const closeBtn = document.getElementById('closeBtn');
+
+      document.querySelectorAll('.video-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const videoUrl = card.dataset.video;
+          videoModal.classList.add('show');
+          spinner.style.display = 'grid';
+          videoIframe.src = videoUrl;
+          videoIframe.onload = () => { spinner.style.display = 'none'; };
+        });
+      });
+
+      closeBtn.addEventListener('click', () => {
+        videoModal.classList.remove('show');
+        spinner.style.display = 'grid';
+        videoIframe.src = '';
+      });
+
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) closeBtn.click();
+      });
+    </script>
+  </body>
+</html>
