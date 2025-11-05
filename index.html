@@ -43,7 +43,7 @@
         <li><a href="index.html#servicios">Servicios</a></li>
         <li><a href="index.html#recursos">Recursos</a></li>
         <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-        <li><a href="index.html#contacto">Contacto</a></li>
+         <li><a href="https://encuadrado.com/p/nicolas-labbe-a-1/" target="_blank" rel="noopener noreferrer">Agendar</a></li>
       </ul>
     </nav>
   </div>
@@ -76,10 +76,9 @@
 <!-- SERVICIOS -->
 <section id="servicios">
   <div class="wrap">
-    <div class="section-head">
+      <div class="section-head">
       <h2><u><strong>Servicios</strong></u></h2>
-      </a>
-    </div>
+  </div>
     <div class="grid">
 
       <a href="psicoterapia.html" target="_blank" class="card">
@@ -116,7 +115,7 @@
     <div class="section-head">
       <h2><u><strong>Recursos</strong></u></h2>
     </div>
-    <div class="section-head">
+    <div class="grid grid-center">
       <article class="card">
         <h3>Para familiares y cuidadores</h3>
         <p>Podcast, videos e ideas prácticas para el día a día.</p>
@@ -143,99 +142,46 @@
             <h2><u><strong>Sobre mí</strong></u></h2>
           </div>
           <div class="card">
-             <a class="btn" href="sobre_mi.html" <p>Soy psicólogo clínico especializado en la atención de Trastornos de la Personalidad en adolescentes y adultos, Doctor en Psicoterapia y Magíster en Psicología Clínica Infanto-Juvenil, con formación en psicoterapia psicoanalítica....</p></a>
-          </div>
+          <p>Soy psicólogo clínico especializado en la atención de Trastornos de la Personalidad en adolescentes y adultos, Doctor en Psicoterapia y Magíster en Psicología Clínica Infanto-Juvenil, con formación en psicoterapia psicoanalítica....</p>
+          <div class="stack-sm">
+        <a class="btn" href="sobre_mi.html">Leer más</a>
         </div>
+</div>
+
       </section>
     </main>
 
-    <footer>
-      <div class="wrap footer-row">
-        <div>© <span id="year"></span> PersonalidadSana SpA · Todos los derechos reservados</div>
-        <div class="muted">Hecho con HTML, CSS y JS</div>
-      </div>
-    </footer>
-
-    <script>
-      // Año dinámico
-      const yearEl = document.getElementById("year");
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      // Menú móvil con backdrop + animación hamburguesa
-      const btn = document.querySelector('.menu-btn');
-      const menu = document.getElementById('menu');
-      const backdrop = document.getElementById('nav-backdrop');
-
-      if (btn && menu && backdrop) {
-        btn.addEventListener('click', () => {
-          const isOpen = menu.classList.toggle('open');
-          btn.setAttribute('aria-expanded', String(isOpen));
-          if (isOpen){
-            backdrop.hidden = false;
-            requestAnimationFrame(() => backdrop.classList.add('show'));
-          } else {
-            backdrop.classList.remove('show');
-            backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
-          }
-        });
-
-        // Cerrar al hacer click en backdrop
-        backdrop.addEventListener('click', () => {
-          menu.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-          backdrop.classList.remove('show');
-          backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
-        });
-
-        // Cerrar con ESC
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && menu.classList.contains('open')) {
-            menu.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            backdrop.classList.remove('show');
-            backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
-          }
-        });
-
-        // Cerrar menú al navegar (mobile)
-        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-          menu.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-          backdrop.classList.remove('show');
-          backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
-        }));
-      }
-    </script>
-  </body>
-</html>
-<footer class="site-footer">
-  <div class="wrap">
-    <!-- Footer -->
     <footer class="site-footer">
   <div class="wrap">
-    <!-- Email -->
     <p class="contact-email">
       <a href="mailto:consulta.nicolaslabbe@gmail.com">consulta.nicolaslabbe@gmail.com</a>
     </p>
-
-    <!-- Redes sociales -->
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/psnicolaslabbe/" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.instagram.com/ps_nicolaslabbea_phd/" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.youtube.com/@ps_nicolaslabbea_phd" target="_blank" aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
+      <a href="https://www.linkedin.com/in/psnicolaslabbe/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/ps_nicolaslabbea_phd/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ps_nicolaslabbea_phd" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-
-    <!-- Derechos reservados -->
     <p class="copyright">
       © <span id="year"></span> PersonalidadSana SpA · Todos los derechos reservados
     </p>
   </div>
 </footer>
+<script>
+const btn = document.querySelector('.menu-btn');
+const menu = document.getElementById('menu');
+const backdrop = document.getElementById('nav-backdrop');
 
+btn?.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  backdrop.hidden = !open;
+  backdrop.classList.toggle('show', open);
+});
 
+backdrop?.addEventListener('click', () => {
+  menu.classList.remove('open');
+  btn.setAttribute('aria-expanded', false);
+  backdrop.classList.remove('show');
+  backdrop.hidden = true;
+});
+</script>

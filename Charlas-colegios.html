@@ -37,7 +37,7 @@
             <li><a href="index.html#servicios">Servicios</a></li>
             <li><a href="index.html#recursos">Recursos</a></li>
             <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-            <li><a href="index.html#contacto">Contacto</a></li>
+             <li><a href="https://encuadrado.com/p/nicolas-labbe-a-1/" target="_blank" rel="noopener noreferrer">Agendar</a></li>
           </ul>
         </nav>
       </div>
@@ -214,5 +214,24 @@
         });
       }
     </script>
+    <script>
+const btn = document.querySelector('.menu-btn');
+const menu = document.getElementById('menu');
+const backdrop = document.getElementById('nav-backdrop');
+
+btn?.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  backdrop.hidden = !open;
+  backdrop.classList.toggle('show', open);
+});
+
+backdrop?.addEventListener('click', () => {
+  menu.classList.remove('open');
+  btn.setAttribute('aria-expanded', false);
+  backdrop.classList.remove('show');
+  backdrop.hidden = true;
+});
+</script>
   </body>
 </html>

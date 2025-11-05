@@ -44,7 +44,7 @@
         <li><a href="index.html#servicios">Servicios</a></li>
         <li><a href="index.html#recursos">Recursos</a></li>
         <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-        <li><a href="index.html#contacto">Contacto</a></li>
+         <li><a href="https://encuadrado.com/p/nicolas-labbe-a-1/" target="_blank" rel="noopener noreferrer">Agendar</a></li>
       </ul>
     </nav>
   </div>
@@ -241,73 +241,40 @@
 </section>
 
     <!-- FOOTER -->
-   <footer class="site-footer">
+<footer class="site-footer">
   <div class="wrap">
-    <!-- Email -->
     <p class="contact-email">
       <a href="mailto:consulta.nicolaslabbe@gmail.com">consulta.nicolaslabbe@gmail.com</a>
     </p>
-
-    <!-- Redes sociales -->
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/psnicolaslabbe/" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.instagram.com/ps_nicolaslabbea_phd/" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.youtube.com/@ps_nicolaslabbea_phd" target="_blank" aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
+      <a href="https://www.linkedin.com/in/psnicolaslabbe/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/ps_nicolaslabbea_phd/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ps_nicolaslabbea_phd" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-
-    <!-- Derechos reservados -->
     <p class="copyright">
       © <span id="year"></span> PersonalidadSana SpA · Todos los derechos reservados
     </p>
   </div>
+  
 </footer>
+<script>
+const btn = document.querySelector('.menu-btn');
+const menu = document.getElementById('menu');
+const backdrop = document.getElementById('nav-backdrop');
 
+btn?.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  backdrop.hidden = !open;
+  backdrop.classList.toggle('show', open);
+});
 
-    <script>
-      // Año dinámico
-      const yearEl = document.getElementById("year");
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      // Menú móvil con backdrop + animación hamburguesa
-      const btn = document.querySelector('.menu-btn');
-      const menu = document.getElementById('menu');
-      const backdrop = document.getElementById('nav-backdrop');
-
-      if (btn && menu && backdrop) {
-        btn.addEventListener('click', () => {
-          const isOpen = menu.classList.toggle('open');
-          btn.setAttribute('aria-expanded', String(isOpen));
-          if (isOpen){
-            backdrop.hidden = false;
-            requestAnimationFrame(() => backdrop.classList.add('show'));
-          } else {
-            backdrop.classList.remove('show');
-            backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
-          }
-        });
-
-        backdrop.addEventListener('click', () => {
-          menu.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-          backdrop.classList.remove('show');
-          backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
-        });
-
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && menu.classList.contains('open')) {
-            menu.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            backdrop.classList.remove('show');
-            backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
-          }
-        });
-      }
-    </script>
+backdrop?.addEventListener('click', () => {
+  menu.classList.remove('open');
+  btn.setAttribute('aria-expanded', false);
+  backdrop.classList.remove('show');
+  backdrop.hidden = true;
+});
+</script>
   </body>
 </html>
