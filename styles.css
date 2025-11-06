@@ -1183,3 +1183,99 @@ header .social-icons {
     font-size: 0.95rem;
   }
 }
+
+/* ===== Ajustes mobile específicos para recursos de pacientes ===== */
+@media (max-width: 768px) {
+  /* que TODO se vea en una sola columna */
+  .video-gallery {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna sí o sí */
+    gap: 1.25rem;
+    padding: 0 1rem;
+  }
+
+  /* las cards ocupan todo el ancho del contenedor */
+  .video-card {
+    width: 100%;
+    max-width: 100%;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  /* la imagen también al 100% */
+  .video-card img {
+    width: 100%;
+    height: auto;
+    min-height: 180px;
+    object-fit: cover;
+  }
+
+  /* el título debajo con buen espacio */
+  .video-card p {
+    margin-top: 0.5rem;
+    text-align: left;
+  }
+
+  /* secciones oscuras (las de videos) con más aire lateral */
+  .therapy-section--dark .wrap,
+  .therapy-section--light .wrap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* hero: que no se coma todo el alto en cel */
+  .hero.hero--integrado {
+    min-height: 380px;
+  }
+  .hero-content {
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* ===== Ajustes mobile específicos para recursos de pacientes ===== */
+@media (max-width: 768px) {
+  /* que TODO se vea en una sola columna */
+  .video-gallery {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna sí o sí */
+    gap: 1.25rem;
+    padding: 0 1rem;
+  }
+
+  /* las cards ocupan todo el ancho del contenedor */
+  .video-card {
+    width: 100%;
+    max-width: 100%;
+    align-items: stretch; /* que el contenido se pegue al ancho */
+    text-align: left; /* se ve más pro en móvil */
+  }
+
+  /* la imagen también al 100% */
+  .video-card img {
+    width: 100%;
+    height: auto; /* deja de forzar altura fija */
+    min-height: 180px; /* para que no queden enanas */
+    object-fit: cover;
+  }
+
+  /* el título debajo con buen espacio */
+  .video-card p {
+    margin-top: 0.5rem;
+    text-align: left;
+  }
+
+  /* secciones oscuras (las de videos) con más aire lateral */
+  .therapy-section--dark .wrap,
+  .therapy-section--light .wrap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* hero: que no se coma todo el alto en cel */
+  .hero.hero--integrado {
+    min-height: 380px;
+  }
+  .hero-content {
+    padding-bottom: 2.5rem;
+  }
+}
