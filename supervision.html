@@ -117,215 +117,283 @@
         </div>
       </section>
 
-      <!-- Supervisión Clínica (con fondo imagen de cabecera de sección) -->
-      <section class="therapy-section therapy-section--dark section-cover" id="supervision-clinica">
+      <!-- ACORDEÓN DE SUPERVISIÓN -->
+      <section class="therapy-accordion" id="supervision">
         <div class="wrap">
-          <div class="therapy-title"><h2>Supervisión Clínica</h2></div>
-          <div class="therapy-content">
-            <p>
-              Espacios de
-              <strong>supervisión clínica</strong>
-              para psicólogos y profesionales de la salud mental que trabajan con
-              <strong>Trastornos de la Personalidad</strong>
-              y otros casos de alta complejidad. El foco está en:
-            </p>
-            <ul>
-              <li>
-                <strong>Casos complejos de personalidad:</strong>
-                organización de la personalidad, encuadre y decisiones clínicas.
-              </li>
-              <li>
-                <strong>Enfoque psicodinámico</strong>
-                integrando
-                <em>estrategias basadas en evidencia</em>
-                y cuidado de la alianza.
-              </li>
-              <li>
-                <strong>Ficha clínica estandarizada</strong>
-                para ordenar información y favorecer claridad diagnóstica.
-              </li>
-            </ul>
+          <h2 class="therapy-accordion-title"><b>FORMATOS DE SUPERVISIÓN</b></h2>
+          <p class="therapy-accordion-subtitle">
+            Espacios clínicos para profesionales que trabajan con
+            <strong>Trastornos de la Personalidad</strong>
+            y casos complejos.
+          </p>
 
-            <h3>Lo que los colegas destacan</h3>
-            <ul>
-              <li>
-                <strong>Comprensión diagnóstica:</strong>
-                más claridad para abordar casos complejos y organizar hipótesis.
-              </li>
-              <li>
-                <strong>Vínculo terapéutico y encuadre:</strong>
-                herramientas para fortalecer la alianza y sostener límites claros.
-              </li>
-              <li>
-                <strong>Intervención basada en evidencia:</strong>
-                recursos para crisis, agresión y objetivos clínicos.
-              </li>
-              <li>
-                <strong>Autocuidado del terapeuta:</strong>
-                mayor seguridad y calma ante situaciones difíciles.
-              </li>
-            </ul>
-            <p>
-              <br />
-              Informe detallado:
-              <b>
-                <u>
-                  <a
-                    href="https://drive.google.com/file/d/1fIg5ccAecULfjYWKYqTCnCPBJKggwoQ0/view?usp=drive_link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <strong>SUPERVISIONES ABIERTAS</strong>
-                  </a>
-                </u>
-              </b>
-              .
-            </p>
+          <div class="therapy-accordion-list" id="sup-accordion">
+            <!-- 1. Supervisión Clínica -->
+            <div class="therapy-acc-item">
+              <button
+                class="therapy-acc-trigger"
+                aria-expanded="true"
+                aria-controls="sup-panel-1"
+                id="sup-trigger-1"
+              >
+                Supervisión Clínica
+                <span class="chevron" aria-hidden="true"></span>
+              </button>
+              <div
+                class="therapy-acc-panel"
+                id="sup-panel-1"
+                role="region"
+                aria-labelledby="sup-trigger-1"
+                style="max-height: 999px"
+              >
+                <div class="therapy-acc-body">
+                  <p>
+                    Espacios de
+                    <strong>supervisión clínica</strong>
+                    para psicólogos y profesionales de la salud mental que trabajan con
+                    <strong>Trastornos de la Personalidad</strong>
+                    y otros casos de alta complejidad. El foco está en:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Casos complejos de personalidad:</strong>
+                      organización de la personalidad, encuadre y decisiones clínicas.
+                    </li>
+                    <li>
+                      <strong>Enfoque psicodinámico</strong>
+                      integrando
+                      <em>estrategias basadas en evidencia</em>
+                      y cuidado de la alianza.
+                    </li>
+                    <li>
+                      <strong>Ficha clínica estandarizada</strong>
+                      para ordenar información y favorecer claridad diagnóstica.
+                    </li>
+                  </ul>
+                  <h3>
+                    <b><u>Lo que los colegas destacan</u></b>
+                  </h3>
+                  <ul>
+                    <li>
+                      <strong>Comprensión diagnóstica:</strong>
+                      más claridad para abordar casos complejos y organizar hipótesis.
+                    </li>
+                    <li>
+                      <strong>Vínculo terapéutico y encuadre:</strong>
+                      herramientas para fortalecer la alianza y sostener límites claros.
+                    </li>
+                    <li>
+                      <strong>Intervención basada en evidencia:</strong>
+                      recursos para crisis, agresión y objetivos clínicos.
+                    </li>
+                    <li>
+                      <strong>Autocuidado del terapeuta:</strong>
+                      mayor seguridad y calma ante situaciones difíciles.
+                    </li>
+                  </ul>
+                  <p>
+                    Informe detallado:
+                    <a
+                      href="https://drive.google.com/file/d/1fIg5ccAecULfjYWKYqTCnCPBJKggwoQ0/view?usp=drive_link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <strong><u>SUPERVISIONES ABIERTAS.</u></strong>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Supervisión Grupal Semanal -->
+            <div class="therapy-acc-item">
+              <button
+                class="therapy-acc-trigger"
+                aria-expanded="false"
+                aria-controls="sup-panel-2"
+                id="sup-trigger-2"
+              >
+                Supervisión Grupal Semanal
+                <span class="chevron" aria-hidden="true"></span>
+              </button>
+              <div
+                class="therapy-acc-panel"
+                id="sup-panel-2"
+                role="region"
+                aria-labelledby="sup-trigger-2"
+                hidden
+              >
+                <div class="therapy-acc-body">
+                  <p>
+                    Grupos pequeños de
+                    <strong>3 a 4 supervisados</strong>
+                    para trabajar casos en profundidad y con continuidad. El objetivo es apoyar a
+                    colegas para:
+                  </p>
+                  <ul>
+                    <li>
+                      Realizar un
+                      <strong>diagnóstico claro</strong>
+                      de la organización de la personalidad.
+                    </li>
+                    <li>
+                      Construir un
+                      <strong>encuadre</strong>
+                      que brinde seguridad al proceso.
+                    </li>
+                    <li>
+                      Aplicar
+                      <strong>estrategias basadas en evidencia</strong>
+                      en la clínica cotidiana.
+                    </li>
+                    <li>
+                      Mejorar la
+                      <strong>toma de decisiones</strong>
+                      en alta complejidad.
+                    </li>
+                  </ul>
+                  <p>
+                    <a
+                      class="btn btn-primary"
+                      href="https://encuadrado.com/p/nicolas-labbe-a-1/s/grupo-de-supervision-clinica-en-formacion"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <b><u>AGENDAR UNA HORA</u></b>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Supervisión Abierta Mensual -->
+            <div class="therapy-acc-item">
+              <button
+                class="therapy-acc-trigger"
+                aria-expanded="false"
+                aria-controls="sup-panel-3"
+                id="sup-trigger-3"
+              >
+                Supervisión Abierta Mensual
+                <span class="chevron" aria-hidden="true"></span>
+              </button>
+              <div
+                class="therapy-acc-panel"
+                id="sup-panel-3"
+                role="region"
+                aria-labelledby="sup-trigger-3"
+                hidden
+              >
+                <div class="therapy-acc-body">
+                  <p>
+                    Encuentros mensuales de
+                    <strong>cupos limitados</strong>
+                    para profesionales que buscan un espacio formativo. La estructura incluye:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Presentación del caso</strong>
+                      con ficha clínica (motivo, historia breve, riesgos, hipótesis).
+                    </li>
+                    <li>
+                      <strong>Discusión guiada</strong>
+                      (alianza, encuadre, manejo de agresión/impulsividad, decisiones técnicas).
+                    </li>
+                    <li>
+                      <strong>Preguntas y comentarios</strong>
+                      del grupo (herramientas aplicables).
+                    </li>
+                    <li>
+                      <strong>Cierre</strong>
+                      con acuerdos, objetivos y recursos.
+                    </li>
+                  </ul>
+                  <p>
+                    <a
+                      class="btn"
+                      href="https://forms.gle/8KR1PKpA4nUudViA8"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <b><u>INSCRIBIRME / RECIBIR INFORMACIÓN</u></b>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Supervisión Grupal Semanal -->
-      <section class="therapy-section therapy-section--light" id="supervision-grupal">
-        <div class="wrap grid-2">
-          <div class="therapy-title"><h2>Supervisión Grupal Semanal</h2></div>
-          <div class="therapy-content">
-            <p>
-              Grupos pequeños de
-              <strong>3 a 4 supervisados</strong>
-              para trabajar casos en profundidad y con continuidad. El objetivo es apoyar a colegas
-              para:
-            </p>
-            <ul>
-              <li>
-                Realizar un
-                <strong>diagnóstico claro</strong>
-                de la organización de la personalidad.
-              </li>
-              <li>
-                Construir un
-                <strong>encuadre</strong>
-                que brinde seguridad al proceso.
-              </li>
-              <li>
-                Aplicar
-                <strong>estrategias basadas en evidencia</strong>
-                en la clínica cotidiana.
-              </li>
-              <li>
-                Mejorar la
-                <strong>toma de decisiones</strong>
-                en alta complejidad.
-              </li>
-            </ul>
-            <p>
-              <br />
-              <b>
-                <u>
-                  <a
-                    class="btn btn-primary"
-                    href="https://encuadrado.com/p/nicolas-labbe-a-1/s/grupo-de-supervision-clinica-en-formacion"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    AGENDAR UNA HORA
-                  </a>
-                </u>
-              </b>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Supervisión Abierta Mensual -->
-      <section class="therapy-section therapy-section--light" id="supervision-abierta">
-        <div class="wrap">
-          <div class="therapy-title"><h2>Supervisión Abierta Mensual</h2></div>
-          <div class="therapy-content">
-            <p>
-              Encuentros mensuales de
-              <strong>cupos limitados</strong>
-              para profesionales que buscan un espacio formativo. La estructura incluye:
-            </p>
-            <ul>
-              <li>
-                <strong>Presentación del caso</strong>
-                con ficha clínica (motivo, historia breve, riesgos, hipótesis).
-              </li>
-              <li>
-                <strong>Discusión guiada</strong>
-                (alianza, encuadre, manejo de agresión/impulsividad, decisiones técnicas).
-              </li>
-              <li>
-                <strong>Preguntas y comentarios</strong>
-                del grupo (herramientas aplicables).
-              </li>
-              <li>
-                <strong>Cierre</strong>
-                con acuerdos, objetivos y recursos.
-              </li>
-            </ul>
-            <p>
-              <br />
-
-              <b>
-                <u>
-                  <a
-                    class="btn"
-                    href="https://forms.gle/8KR1PKpA4nUudViA8"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    INSCRIBIRME / RECIBIR INFORMACIÓN
-                  </a>
-                </u>
-              </b>
-            </p>
-          </div>
-        </div>
-      </section>
       <!-- CARRUSEL -->
-      <section id="testimonios" class="wrap" style="padding: 2rem 0">
-        <h2 style="margin: 0 0 1rem; color: var(--primary)">Opiniones de colegas</h2>
-        <div class="strip">
+      <section id="testimonios" class="testimonials">
+        <div class="wrap">
+          <h2 class="testimonials-title">Opiniones de colegas</h2>
+        </div>
+        <div class="strip" aria-label="Carrusel de testimonios de supervisión">
           <div class="strip__track">
             <!-- Set A -->
             <figure class="strip-card">
-              <img src="img/testimonio_1.jpg" alt="Evaluación 1" />
+              <img
+                src="img/testimonio_1.jpg"
+                alt="Evaluación de colega 1 sobre las supervisiones"
+                loading="lazy"
+              />
             </figure>
             <figure class="strip-card">
-              <img src="img/testimonio_2.jpg" alt="Evaluación 2" />
+              <img
+                src="img/testimonio_2.jpg"
+                alt="Evaluación de colega 2 sobre las supervisiones"
+                loading="lazy"
+              />
             </figure>
             <figure class="strip-card">
-              <img src="img/testimonio_3.jpg" alt="Evaluación 3" />
+              <img
+                src="img/testimonio_3.jpg"
+                alt="Evaluación de colega 3 sobre las supervisiones"
+                loading="lazy"
+              />
             </figure>
             <figure class="strip-card">
-              <img src="img/testimonio_4.jpg" alt="Evaluación 4" />
+              <img
+                src="img/testimonio_4.jpg"
+                alt="Evaluación de colega 4 sobre las supervisiones"
+                loading="lazy"
+              />
             </figure>
             <figure class="strip-card">
-              <img src="img/testimonio_5.jpg" alt="Evaluación 5" />
+              <img
+                src="img/testimonio_5.jpg"
+                alt="Evaluación de colega 5 sobre las supervisiones"
+                loading="lazy"
+              />
             </figure>
             <figure class="strip-card">
-              <img src="img/testimonio_6.jpg" alt="Evaluación 6" />
+              <img
+                src="img/testimonio_6.jpg"
+                alt="Evaluación de colega 6 sobre las supervisiones"
+                loading="lazy"
+              />
             </figure>
-            <!-- Set B duplicado para loop suave -->
+
+            <!-- Set B (duplicado para loop) -->
             <figure class="strip-card" aria-hidden="true">
-              <img src="img/testimonio_1.jpg" alt="" />
-            </figure>
-            <figure class="strip-card" aria-hidden="true">
-              <img src="img/testimonio_2.jpg" alt="" />
-            </figure>
-            <figure class="strip-card" aria-hidden="true">
-              <img src="img/testimonio_3.jpg" alt="" />
-            </figure>
-            <figure class="strip-card" aria-hidden="true">
-              <img src="img/testimonio_4.jpg" alt="" />
+              <img src="img/testimonio_1.jpg" alt="" loading="lazy" />
             </figure>
             <figure class="strip-card" aria-hidden="true">
-              <img src="img/testimonio_5.jpg" alt="" />
+              <img src="img/testimonio_2.jpg" alt="" loading="lazy" />
             </figure>
             <figure class="strip-card" aria-hidden="true">
-              <img src="img/testimonio_6.jpg" alt="" />
+              <img src="img/testimonio_3.jpg" alt="" loading="lazy" />
+            </figure>
+            <figure class="strip-card" aria-hidden="true">
+              <img src="img/testimonio_4.jpg" alt="" loading="lazy" />
+            </figure>
+            <figure class="strip-card" aria-hidden="true">
+              <img src="img/testimonio_5.jpg" alt="" loading="lazy" />
+            </figure>
+            <figure class="strip-card" aria-hidden="true">
+              <img src="img/testimonio_6.jpg" alt="" loading="lazy" />
             </figure>
           </div>
         </div>
@@ -467,6 +535,31 @@
         btn.setAttribute("aria-expanded", false);
         backdrop.classList.remove("show");
         backdrop.hidden = true;
+      });
+    </script>
+    <script>
+      const accTriggers = document.querySelectorAll(".therapy-acc-trigger");
+
+      accTriggers.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const panel = document.getElementById(btn.getAttribute("aria-controls"));
+          const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+          // cerrar todos (comportamiento "flush")
+          accTriggers.forEach((otherBtn) => {
+            const otherPanel = document.getElementById(otherBtn.getAttribute("aria-controls"));
+            otherBtn.setAttribute("aria-expanded", "false");
+            otherPanel.hidden = true;
+            otherPanel.style.maxHeight = null;
+          });
+
+          // abrir el que toqué (si estaba cerrado)
+          if (!isOpen) {
+            btn.setAttribute("aria-expanded", "true");
+            panel.hidden = false;
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
       });
     </script>
   </body>

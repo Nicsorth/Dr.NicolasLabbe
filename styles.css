@@ -802,48 +802,70 @@ header .social-icons {
 
 /* ==================== PAGINA SUPERVISION ==================== */
 /* ===== Supervisión: utilidades ===== */
+/* ==================== CARRUSEL TESTIMONIOS ==================== */
+.testimonials {
+  padding: 2rem 0;
+}
+.testimonials-title {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
 
 .strip {
   overflow: hidden;
   border-radius: 12px;
 }
+
 .strip__track {
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
+  animation: stripMove 20s linear infinite;
   will-change: transform;
-  animation: stripMove 8s linear infinite;
 }
+
 .strip-card {
-  flex: 0 0 auto;
-  width: 300px;
+  flex: 0 0 300px;
 }
+
 .strip-card img {
   width: 100%;
   height: 460px;
   object-fit: cover;
-  border-radius: 2px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
+
+/* Pausar al pasar el mouse */
 .strip:hover .strip__track {
   animation-play-state: paused;
 }
 
+/* Respeta usuarios que no quieren animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .strip__track {
+    animation: none;
+  }
+}
+
+/* Animación */
 @keyframes stripMove {
   0% {
     transform: translateX(0);
   }
   100% {
+    /* se mueve la mitad porque duplicamos la lista */
     transform: translateX(-50%);
-  } /* porque duplicamos la lista */
+  }
 }
 
-@media (max-width: 600px) {
+/* Mobile */
+@media (max-width: 700px) {
   .strip-card {
-    width: 100px;
+    flex-basis: 220px;
   }
   .strip-card img {
-    height: 180px;
+    height: 360px;
   }
 }
 
