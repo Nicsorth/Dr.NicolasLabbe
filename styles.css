@@ -698,6 +698,7 @@ header .social-icons {
 }
 
 /* Aplica grid al contenedor centrado */
+
 .therapy-section .wrap {
   display: grid;
   grid-template-columns: 1fr 2fr; /* izq título / der contenido */
@@ -1277,5 +1278,130 @@ header .social-icons {
   }
   .hero-content {
     padding-bottom: 2.5rem;
+  }
+}
+
+/* ===== Acordeón sólo para psicoterapia ===== */
+.therapy-accordion {
+  background: linear-gradient(180deg, var(--bg) 0%, #fff9f7 100%);
+  padding: 3.5rem 0;
+}
+
+.therapy-accordion .wrap {
+  max-width: var(--maxw);
+}
+
+.therapy-accordion-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: var(--accent);
+}
+
+.therapy-accordion-subtitle {
+  margin-top: 0.3rem;
+  color: var(--muted);
+}
+
+/* caja del acordeón */
+.therapy-accordion-list {
+  margin-top: 1.5rem;
+  border: 1px solid rgba(154, 52, 18, 0.08);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(2, 6, 23, 0.03);
+}
+
+.therapy-acc-item + .therapy-acc-item {
+  border-top: 1px solid rgba(154, 52, 18, 0.05);
+}
+
+/* header del item */
+.therapy-acc-trigger {
+  width: 100%;
+  background: linear-gradient(90deg, #fff6f2 0%, #fffaf8 100%);
+  border: none;
+  outline: none;
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+  text-align: left;
+}
+
+.therapy-acc-trigger:hover {
+  background: #fff1eb;
+  color: var(--primary);
+}
+
+.therapy-acc-trigger[aria-expanded="true"] {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+}
+
+/* iconito */
+.therapy-acc-trigger .chevron {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.therapy-acc-trigger[aria-expanded="true"] .chevron {
+  transform: rotate(225deg);
+  border-color: #fff;
+}
+
+/* panel */
+.therapy-acc-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease-out;
+  background: var(--surface);
+}
+
+.therapy-acc-panel[hidden] {
+  display: block;
+}
+
+.therapy-acc-body {
+  padding: 0 1.2rem 1.1rem;
+  display: grid;
+  gap: 0.6rem;
+  color: var(--ink);
+}
+
+.therapy-acc-body p {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.therapy-acc-body ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+@media (max-width: 700px) {
+  .therapy-acc-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.therapy-acc-trigger {
+  font-size: 1.15rem; /* antes 1rem */
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+@media (min-width: 1024px) {
+  .therapy-acc-trigger {
+    font-size: 1.25rem;
   }
 }
