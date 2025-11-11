@@ -228,44 +228,55 @@
           <p>Estilos parentales y manejo de situaciones difíciles</p>
         </div>
       </div>
-      <!-- Instrucciones para subtítulos y ejercicio -->
-      <div class="instructions">
-        
-        <h3>Actividad: patrones relacionales</h3>
-        <p>
-          En este video se presentan distintos patrones de interacción y formas de aproximarse a la resolución de
-          problemas en situaciones difíciles. Cuando trabajo con padres y/o cuidadores, les propongo el siguiente ejercicio (ojalá en pareja):
-        </p>
-        <ol>
-          <li>Cada uno identificará cuál de los estilos de comunicación o resolución de problemas predomina en el otro.</li>
-          <li>No se permite elegir el patrón “suficientemente bueno” en esta dinámica.</li>
-          <li>Toma la actividad como una instancia de trabajo y reflexión conjunta, evitando tomárselo de manera personal.</li>
-        </ol>
-        <p>
-          <strong>Objetivo:</strong> ayudarles a reflexionar sobre el grado de alineación entre sus estilos parentales y
-          reconocer qué elementos faltan para aproximarse a un estilo de interacción “suficientemente bueno”.
-        </p>
-        <h3>Cómo activar subtítulos automáticos en español</h3>
-        <p>
-          Para que puedas seguir mejor el contenido del video, te recomendamos activar los subtítulos
-          automáticos y traducirlos al español. Sigue estos pasos:
-        </p>
-        <ol>
-          <li><strong>Abrir el video en YouTube:</strong> Utiliza el enlace que compartimos más arriba.</li>
-          <li><strong>Buscar el ícono de subtítulos:</strong> En la barra inferior del reproductor, haz clic en el
-            ícono <em>CC</em> o <em>Subtítulos</em> para activar los subtítulos automáticos.</li>
-          <li><strong>Activar los subtítulos automáticos:</strong> Esto suele habilitar subtítulos en el idioma original
-            (generalmente inglés).</li>
-          <li><strong>Cambiar el idioma a español:</strong> Pulsa el ícono de configuración (una rueda ⚙️) y selecciona
-            <em>Subtítulos/CC</em>. Luego elige <em>Traducir automáticamente</em> y selecciona <em>Español</em> en la lista de
-            idiomas disponibles.</li>
-          <li><strong>Ver los subtítulos en español:</strong> Al seleccionar el idioma, los subtítulos traducidos
-            aparecerán sobre el video. Si tardan en mostrarse, pausa y reinicia la reproducción.</li>
-        </ol>
-        </p>
+ <div class="therapy-accordion" style="padding: 2.5rem 0 0;">
+  <div class="therapy-accordion-list">
+    
+    <!-- Item 1: Actividad -->
+    <div class="therapy-acc-item">
+      <button class="therapy-acc-trigger" type="button" aria-expanded="false" aria-controls="acc-relacionales">
+        Actividad: patrones relacionales
+        <span class="chevron" aria-hidden="true"></span>
+      </button>
+      <div id="acc-relacionales" class="therapy-acc-panel" hidden>
+        <div class="therapy-acc-body">
+          <p>
+            En este video se presentan distintos patrones de interacción y formas de aproximarse a la resolución de problemas en situaciones difíciles. 
+            Cuando trabajo con padres y/o cuidadores, les propongo el siguiente ejercicio (idealmente en pareja):
+          </p>
+          <ul>
+            <li>Cada uno identificará cuál de los estilos de comunicación o resolución de problemas predomina en el otro.</li>
+            <li>No se permite elegir el patrón “suficientemente bueno” en esta dinámica.</li>
+            <li>Toma la actividad como una instancia de trabajo y reflexión conjunta, evitando tomárselo de manera personal.</li>
+          </ul>
+          <p>
+            <strong>Objetivo:</strong> ayudarles a reflexionar sobre el grado de alineación entre sus estilos parentales y reconocer qué elementos faltan para aproximarse a un estilo de interacción “suficientemente bueno”.
+          </p>
+        </div>
       </div>
     </div>
+
+    <!-- Item 2: Subtítulos -->
+    <div class="therapy-acc-item">
+      <button class="therapy-acc-trigger" type="button" aria-expanded="false" aria-controls="acc-subtitulos">
+        Cómo activar subtítulos automáticos en español
+        <span class="chevron" aria-hidden="true"></span>
+      </button>
+      <div id="acc-subtitulos" class="therapy-acc-panel" hidden>
+        <div class="therapy-acc-body">
+          <p>Para seguir mejor el contenido del video, puedes activar subtítulos automáticos y traducirlos al español:</p>
+          <ol>
+            <li><strong>Abrir el video en YouTube:</strong> usa el enlace compartido más arriba.</li>
+            <li><strong>Buscar el ícono de subtítulos (CC):</strong> en la barra inferior del video.</li>
+            <li><strong>Activar los subtítulos automáticos:</strong> normalmente estarán en inglés.</li>
+            <li><strong>Cambiar el idioma a español:</strong> haz clic en la rueda ⚙️ → <em>Subtítulos/CC</em> → <em>Traducir automáticamente</em> → <em>Español</em>.</li>
+            <li><strong>Ver los subtítulos:</strong> si no aparecen de inmediato, pausa y vuelve a reproducir.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 </section>
 
  <!-- Podcast: Hablemos de AdolesCiencia -->
@@ -407,5 +418,58 @@ backdrop?.addEventListener('click', () => {
   backdrop.hidden = true;
 });
 </script>
+    <script>
+const btn = document.querySelector('.menu-btn');
+const menu = document.getElementById('menu');
+const backdrop = document.getElementById('nav-backdrop');
+
+btn?.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  backdrop.hidden = !open;
+  backdrop.classList.toggle('show', open);
+});
+
+backdrop?.addEventListener('click', () => {
+  menu.classList.remove('open');
+  btn.setAttribute('aria-expanded', false);
+  backdrop.classList.remove('show');
+  backdrop.hidden = true;
+});
+</script>
+
+<!-- 💡 AÑADE ESTE NUEVO SCRIPT AQUÍ 👇 -->
+<script>
+  // acordeón estilo PersonalidadSana
+  const accTriggers = document.querySelectorAll('.therapy-acc-trigger');
+
+  accTriggers.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId);
+
+      // cerramos todos dentro del mismo acordeón
+      const list = btn.closest('.therapy-accordion-list');
+      list.querySelectorAll('.therapy-acc-trigger').forEach((otherBtn) => {
+        otherBtn.setAttribute('aria-expanded', 'false');
+      });
+      list.querySelectorAll('.therapy-acc-panel').forEach((otherPanel) => {
+        otherPanel.hidden = true;
+        otherPanel.style.maxHeight = null;
+      });
+
+      // si el que clickeamos estaba cerrado, lo abrimos
+      if (!isExpanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        panel.hidden = false;
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
   </body>
 </html>

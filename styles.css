@@ -1427,3 +1427,7 @@ header .social-icons {
     font-size: 1.25rem;
   }
 }
+/* Separación entre acordeón y siguiente sección */
+.therapy-accordion {
+  margin-bottom: 3rem; /* agrega aire antes del podcast */
+}
