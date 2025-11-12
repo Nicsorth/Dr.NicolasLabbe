@@ -1019,6 +1019,85 @@ header .social-icons {
     height: 180px;
   }
 }
+
+/* ===== Modal de video reutilizable ===== */
+.video-modal {
+  position: fixed;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+}
+
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.video-dialog {
+  position: relative;
+  width: min(900px, 92vw);
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.video-frame {
+  position: absolute;
+  inset: 0;
+}
+
+.video-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* mobile: que el modal no se corte */
+@media (max-width: 600px) {
+  .video-dialog {
+    width: 95vw;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+  }
+}
+
+/* ===== Ajuste visual: espacio para títulos de secciones ===== */
+.therapy-section .therapy-title {
+  margin-bottom: 2rem; /* agrega aire bajo el título */
+}
+
+/* Para secciones oscuras (como Entrevistas) */
+.therapy-section--dark .therapy-title {
+  margin-top: 2.5rem; /* separa un poco desde arriba */
+  margin-bottom: 2rem; /* y también desde abajo */
+}
+
+/* En pantallas pequeñas, deja más aire todavía */
+@media (max-width: 768px) {
+  .therapy-section .therapy-title {
+    margin-top: 2rem;
+    margin-bottom: 1.8rem;
+  }
+}
+
 /*_____ SOBRE MI____________*/
 
 /* ===== Sobre mí ===== */
