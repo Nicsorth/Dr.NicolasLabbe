@@ -1090,12 +1090,12 @@ header .social-icons {
   margin-bottom: 2rem; /* y también desde abajo */
 }
 
-/* En pantallas pequeñas, deja más aire todavía */
-@media (max-width: 768px) {
-  .therapy-section .therapy-title {
-    margin-top: 2rem;
-    margin-bottom: 1.8rem;
-  }
+
+}
+.therapy-section .therapy-title { margin-bottom: 2rem; }
+.therapy-section--dark .therapy-title { margin-top: 2.5rem; margin-bottom: 2rem; }
+@media (max-width: 768px){
+  .therapy-section .therapy-title { margin-top: 2rem; margin-bottom: 1.8rem; }
 }
 
 /*_____ SOBRE MI____________*/
@@ -1510,3 +1510,5 @@ header .social-icons {
 .therapy-accordion {
   margin-bottom: 3rem; /* agrega aire antes del podcast */
 }
+
+

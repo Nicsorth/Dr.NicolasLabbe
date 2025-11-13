@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog — PersonalidadSana · Nicolás Labbé</title>
+    <meta
+      name="description"
+      content="Artículos y reflexiones sobre adolescencia, trastornos de la personalidad y salud mental basada en evidencia."
+    />
+    <link rel="icon" href="data:," />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <a href="#contenido" class="chip wrap sr-only">Saltar al contenido</a>
+
+    <!-- mismo header que index -->
+    <header>
+      <div class="wrap nav">
+        <a
+          class="brand"
+          href="index.html#contenido"
+          aria-label="Ir al inicio — Ps. Nicolás Labbé A., PhD"
+        >
+          <div class="logo" aria-hidden="true">Ps.</div>
+          <span>Nicolás Labbé A., PhD</span>
+        </a>
+
+        <div class="social-icons">
+          <a
+            href="https://www.linkedin.com/in/psnicolaslabbe/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/ps_nicolaslabbea_phd/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/@ps_nicolaslabbea_phd"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+
+        <nav aria-label="Navegación principal">
+          <button
+            type="button"
+            class="menu-btn"
+            aria-expanded="false"
+            aria-controls="menu"
+            aria-label="Abrir menú"
+          >
+            <span class="burger" aria-hidden="true"></span>
+            <span class="sr-only">Menú</span>
+          </button>
+          <ul id="menu">
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#recursos">Recursos</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+            <li>
+              <a
+                href="https://encuadrado.com/p/nicolas-labbe-a-1/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Agendar
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div id="nav-backdrop" class="nav-backdrop" hidden></div>
+
+    <main id="contenido">
+      <section class="hero hero--center">
+        <div class="wrap">
+          <span class="chip">Blog</span>
+          <h1>Artículos y reflexiones</h1>
+          <p class="lead">
+            Pronto encontrarás aquí textos sobre adolescencia, trastornos de la personalidad,
+            empatía y salud mental basada en evidencia, escritos para padres, colegas y comunidades
+            educativas.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <p class="muted">
+            Aún no hay artículos publicados. Estoy preparando contenido para que puedas leer con
+            calma y guardar los textos que más te sirvan.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="contact-email">
+          <a href="mailto:consulta.nicolaslabbe@gmail.com">consulta.nicolaslabbe@gmail.com</a>
+        </p>
+        <div class="social-icons">
+          <a
+            href="https://www.linkedin.com/in/psnicolaslabbe/"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/ps_nicolaslabbea_phd/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/@ps_nicolaslabbea_phd"
+            target="_blank"
+            rel="noopener"
+            aria-label="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        <p class="copyright">
+          ©
+          <span id="year"></span>
+          PersonalidadSana SpA · Todos los derechos reservados
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.querySelector(".menu-btn");
+      const menu = document.getElementById("menu");
+      const backdrop = document.getElementById("nav-backdrop");
+
+      btn?.addEventListener("click", () => {
+        const open = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
+        backdrop.hidden = !open;
+        backdrop.classList.toggle("show", open);
+      });
+
+      backdrop?.addEventListener("click", () => {
+        menu.classList.remove("open");
+        btn.setAttribute("aria-expanded", false);
+        backdrop.classList.remove("show");
+        backdrop.hidden = true;
+      });
+
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
