@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blog — PersonalidadSana · Nicolás Labbé</title>
+
+    <!-- ⚠️ CAMBIAR: título de la pestaña -->
+    <title>[TÍTULO ARTÍCULO] — Blog · PersonalidadSana</title>
+
+    <!-- ⚠️ CAMBIAR: descripción corta del artículo -->
     <meta
       name="description"
-      content="Artículos y reflexiones sobre adolescencia, trastornos de la personalidad y salud mental basada en evidencia."
+      content="[Resumen muy breve del artículo para buscadores y compartir enlace]"
     />
+
     <link rel="icon" href="data:," />
     <link
       href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;500;700&display=swap"
@@ -23,7 +28,7 @@
   <body>
     <a href="#contenido" class="chip wrap sr-only">Saltar al contenido</a>
 
-    <!-- mismo header que index -->
+    <!-- HEADER (igual que index / blog) -->
     <header>
       <div class="wrap nav">
         <a
@@ -94,13 +99,14 @@
     <div id="nav-backdrop" class="nav-backdrop" hidden></div>
 
     <main id="contenido">
-      <!-- HERO -->
+      <!-- HERO DEL ARTÍCULO -->
       <section class="hero hero--integrado">
         <picture class="hero-bg">
+          <!-- ⚠️ CAMBIAR: imagen específica del artículo si quieres -->
           <source media="(min-width: 769px)" srcset="img/blog.jpg" />
           <img
             src="img/blog.jpg"
-            alt="Blog de PersonalidadSana — artículos y reflexiones"
+            alt="[Descripción breve de la imagen o tema del artículo]"
             width="1600"
             height="900"
             loading="eager"
@@ -109,74 +115,71 @@
         </picture>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
-          <h1 class="hero-title"><b>BLOG</b></h1>
+          <!-- ⚠️ CAMBIAR: título visible del artículo -->
+          <h1 class="hero-title">[TÍTULO DEL ARTÍCULO]</h1>
+
+          <!-- ⚠️ CAMBIAR: bajada del artículo -->
           <h2 class="hero-subtitle">
-            Lecturas breves y aplicables para comprender mejor a quienes acompañamos y fomentar
-            vínculos más sanos y empáticos.
+            [Breve frase que resuma el foco del artículo y qué aporta a quien lo lee.]
           </h2>
         </div>
       </section>
 
-      <!-- BLOQUE 1: Sobre este blog (oscuro, como en talleres) -->
-      <section class="therapy-section therapy-section--dark">
-        <div class="wrap">
-          <div class="therapy-title">
-            <h2>Sobre este espacio</h2>
-          </div>
-          <div class="therapy-content">
-            <p>
-              Este blog reúne
-              <strong>textos pensados para padres, adolescentes y profesionales</strong>
-              , que buscan traducir la evidencia científica en orientaciones claras y aplicables en
-              la vida diaria.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- BLOQUE 2: Índice del blog (claro, con cards) -->
+      <!-- CUERPO DEL ARTÍCULO -->
       <section class="therapy-section therapy-section--light">
         <div class="wrap">
           <div class="therapy-title">
-            <h2>Artículos recientes</h2>
+            <h2>Artículo</h2>
           </div>
 
-          <div class="therapy-content">
-            <p class="muted">
-              A medida que vaya publicando nuevos textos, irán apareciendo aquí organizados por
-              tema.
+          <div class="therapy-content article-body">
+            <!-- Migas de pan / volver al blog -->
+            <p class="article-breadcrumb">
+              <a href="blog.html">← Volver al blog</a>
             </p>
 
-            <div class="grid blog-posts-grid">
-              <!-- Post 1 -->
-              <a href="blog-empatia.html" class="card blog-card">
-                <h3>¿Y si siento que mi hijo no tiene empatía?</h3>
-                <p>
-                  Cómo entender la
-                  <strong>empatía</strong>
-                  en la
-                  <strong>adolescencia</strong>
-                  , su relación con la agresión y los
-                  <strong>trastornos de la personalidad</strong>
-                  , y cuándo puede ayudar la
-                  <strong>psicoterapia</strong>
-                </p>
-                <span class="chip">adolescencia</span>
-              </a>
+            <!-- Meta: fecha, público, categorías -->
+            <p class="article-meta">
+              Publicado el
+              <strong>[dd/mm/aaaa]</strong>
+              · Dirigido a
+              <strong>[Padres / Adolescentes / Profesionales]</strong>
+              · Temas:
+              <span>adolescencia</span>
+              ,
+              <span>personalidad</span>
+            </p>
 
-              <!-- Post 2 -->
-              <a href="blog-TFP.html" class="card blog-card">
-                <h3>Psicoterapia Focalizada en la Transferencia</h3>
-                <p>
-                  Qué es, cómo funciona, y a quipen puede ayudar esta psicoterapia para los
-                  <strong>Trastornos de la Personalidad</strong>
-                  .
-                </p>
-                <span class="chip">Psicoterapia</span>
-                <span class="chip">Personalidad</span>
-                <span class="chip">TFP</span>
-              </a>
-            </div>
+            <!-- CONTENIDO: aquí escribes el texto del artículo -->
+            <h3>Subtítulo 1 — Introducción</h3>
+            <p>
+              [Aquí va el primer bloque de texto. Puedes contar el contexto clínico, el problema
+              frecuente, una viñeta muy general, etc.]
+            </p>
+
+            <h3>Subtítulo 2 — Desarrollo del tema</h3>
+            <p>
+              [Desarrolla ideas, explicaciones psicoeducativas, conexiones con evidencia, siempre en
+              lenguaje cercano.]
+            </p>
+
+            <ul>
+              <li>[Punto práctico o recomendación 1]</li>
+              <li>[Punto práctico o recomendación 2]</li>
+              <li>[Punto práctico o recomendación 3]</li>
+            </ul>
+
+            <h3>Subtítulo 3 — ¿Qué puede hacer quien lee?</h3>
+            <p>
+              [Aquí puedes aterrizar a acciones concretas para padres, adolescentes o colegas:
+              señales de alerta, cómo pedir ayuda, qué evitar, etc.]
+            </p>
+
+            <p>
+              [Cierre breve, con un tono esperanzador y realista. Por ejemplo, remarcar que pedir
+              ayuda a tiempo es una forma de cuidado, que los cambios en personalidad son posibles,
+              etc.]
+            </p>
           </div>
         </div>
       </section>
